@@ -13,14 +13,14 @@ namespace Assets.Scripts.World
         public WorldRenderer Renderer;
 
         public Transform MachinesTransform;
-        public Belt BeltMachine;
-        public RotationMachine RotationMachine;
-        public SizeChangerMachine SizeChangerMachine;
-        public FlipMachine FlipMachine;
-        public Wall Wall;
-        public Target Target;
-        public Spawner Spawner;
-        public EmptyMachine EmptyMachine;
+        public Belt BeltMachinePrototype;
+        public RotationMachine RotationMachinePrototype;
+        public SizeChangerMachine SizeChangerMachinePrototype;
+        public FlipMachine FlipMachinePrototype;
+        public Wall WallPrototype;
+        public Target TargetPrototype;
+        public Spawner SpawnerPrototype;
+        public Floor FloorPrototype;
 
 
 
@@ -30,7 +30,7 @@ namespace Assets.Scripts.World
         private readonly Dictionary<Vector2Int, BaseMachine> _machines = new();
 
         //TODO: Show user placement failed
-        public event Action<Vector2Int, MachineEnum> MachinePlacementFailed;
+        public event Action<Vector2Int, MachineType> MachinePlacementFailed;
 
         private void Start()
         {
@@ -58,42 +58,42 @@ namespace Assets.Scripts.World
             }
         }
 
-        private bool CountAddMachine(MachineEnum machineType, int amount, bool force = false)
+        private bool CountAddMachine(MachineType machineType, int amount, bool force = false)
         {
             if (_currentLevel == null)
                 return false;
 
             switch (machineType)
             {
-                case MachineEnum.Belt when _currentLevel.RemainingBelts + amount >= 0 || force || _currentLevel.RemainingBelts < 0:
-                    if (_currentLevel.RemainingBelts > 0)
+                case MachineType.Belt when _currentLevel.RemainingBelts + amount >= 0 || force || _currentLevel.RemainingBelts < 0:
+                    if (_currentLevel.RemainingBelts >= 0)
                         _currentLevel.RemainingBelts = Math.Max(0, _currentLevel.RemainingBelts + amount);
                     LaunchNotification($"inventory:update:{machineType}");
                     LaunchNotification($"inventory:update:{machineType}:{_currentLevel.RemainingBelts}");
                     return true;
 
-                case MachineEnum.RotationMachine when _currentLevel.RemainingRotations + amount >= 0 || force || _currentLevel.RemainingRotations < 0:
-                    if (_currentLevel.RemainingRotations > 0)
+                case MachineType.RotationMachine when _currentLevel.RemainingRotations + amount >= 0 || force || _currentLevel.RemainingRotations < 0:
+                    if (_currentLevel.RemainingRotations >= 0)
                         _currentLevel.RemainingRotations = Math.Max(0, _currentLevel.RemainingRotations + amount);
                     LaunchNotification($"inventory:update:{machineType}");
                     LaunchNotification($"inventory:update:{machineType}:{_currentLevel.RemainingRotations}");
                     return true;
 
-                case MachineEnum.SizeChangerMachine when _currentLevel.RemainingSize + amount >= 0 || force || _currentLevel.RemainingSize < 0:
-                    if (_currentLevel.RemainingSize > 0)
+                case MachineType.SizeChangerMachine when _currentLevel.RemainingSize + amount >= 0 || force || _currentLevel.RemainingSize < 0:
+                    if (_currentLevel.RemainingSize >= 0)
                         _currentLevel.RemainingSize = Math.Max(0, _currentLevel.RemainingSize + amount);
                     LaunchNotification($"inventory:update:{machineType}");
                     LaunchNotification($"inventory:update:{machineType}:{_currentLevel.RemainingSize}");
                     return true;
 
-                case MachineEnum.FlipMachine when _currentLevel.RemainingFlips + amount >= 0 || force || _currentLevel.RemainingFlips < 0:
-                    if (_currentLevel.RemainingFlips > 0)
+                case MachineType.FlipMachine when _currentLevel.RemainingFlips + amount >= 0 || force || _currentLevel.RemainingFlips < 0:
+                    if (_currentLevel.RemainingFlips >= 0)
                         _currentLevel.RemainingFlips = Math.Max(0, _currentLevel.RemainingFlips + amount);
                     LaunchNotification($"inventory:update:{machineType}");
                     LaunchNotification($"inventory:update:{machineType}:{_currentLevel.RemainingFlips}");
                     return true;
 
-                case MachineEnum.None:
+                case MachineType.None:
                     return true;
 
                 default:
@@ -109,28 +109,31 @@ namespace Assets.Scripts.World
             {
                 for (int y = 0; y < level.Size.y; ++y)
                 {
-                    SetMachine(new Vector2Int(x, y), MachineEnum.None);
+                    SetMachine(new Vector2Int(x, y), MachineType.None);
                 }
             }
 
             Renderer.RenderSize = level.Size;
 
 
-            LaunchNotification($"inventory:update:{MachineEnum.None}");
-            LaunchNotification($"inventory:update:{MachineEnum.None}:{-1}");
+            LaunchNotification($"inventory:update:{MachineType.None}");
+            LaunchNotification($"inventory:update:{MachineType.None}:{-1}");
 
 
-            LaunchNotification($"inventory:update:{MachineEnum.Belt}");
-            LaunchNotification($"inventory:update:{MachineEnum.Belt}:{_currentLevel.RemainingBelts}");
+            LaunchNotification($"inventory:update:{MachineType.Belt}");
+            LaunchNotification($"inventory:update:{MachineType.Belt}:{_currentLevel.RemainingBelts}");
 
-            LaunchNotification($"inventory:update:{MachineEnum.RotationMachine}");
-            LaunchNotification($"inventory:update:{MachineEnum.RotationMachine}:{_currentLevel.RemainingRotations}");
+            LaunchNotification($"inventory:update:{MachineType.RotationMachine}");
+            LaunchNotification($"inventory:update:{MachineType.RotationMachine}:{_currentLevel.RemainingRotations}");
 
-            LaunchNotification($"inventory:update:{MachineEnum.SizeChangerMachine}");
-            LaunchNotification($"inventory:update:{MachineEnum.SizeChangerMachine}:{_currentLevel.RemainingSize}");
+            LaunchNotification($"inventory:update:{MachineType.SizeChangerMachine}");
+            LaunchNotification($"inventory:update:{MachineType.SizeChangerMachine}:{_currentLevel.RemainingSize}");
 
-            LaunchNotification($"inventory:update:{MachineEnum.FlipMachine}");
-            LaunchNotification($"inventory:update:{MachineEnum.FlipMachine}:{_currentLevel.RemainingFlips}");
+            LaunchNotification($"inventory:update:{MachineType.FlipMachine}");
+            LaunchNotification($"inventory:update:{MachineType.FlipMachine}:{_currentLevel.RemainingFlips}");
+
+
+            LaunchNotification($"switch:machine:{MachineType.None}");
         }
 
         private void Update()
@@ -149,7 +152,7 @@ namespace Assets.Scripts.World
             return _machines.GetValueOrDefault(position);
         }
 
-        private BaseMachine CreateMachine(Vector2Int position, MachineEnum machineType)
+        private BaseMachine CreateMachine(Vector2Int position, MachineType machineType)
         {
             BaseMachine prototype = GetPrototype(machineType);
             BaseMachine machine = Instantiate(prototype, MachinesTransform);
@@ -174,24 +177,24 @@ namespace Assets.Scripts.World
             Destroy(machine.gameObject);
         }
 
-        private BaseMachine GetPrototype(MachineEnum machineType)
+        private BaseMachine GetPrototype(MachineType machineType)
         {
             return machineType switch
             {
-                MachineEnum.Belt => BeltMachine,
-                MachineEnum.RotationMachine => RotationMachine,
-                MachineEnum.SizeChangerMachine => SizeChangerMachine,
-                MachineEnum.FlipMachine => FlipMachine,
-                MachineEnum.Spawner => Spawner,
-                MachineEnum.Target => Target,
-                MachineEnum.Wall => Wall,
-                MachineEnum.None => EmptyMachine,
+                MachineType.Belt => BeltMachinePrototype,
+                MachineType.RotationMachine => RotationMachinePrototype,
+                MachineType.SizeChangerMachine => SizeChangerMachinePrototype,
+                MachineType.FlipMachine => FlipMachinePrototype,
+                MachineType.Spawner => SpawnerPrototype,
+                MachineType.Target => TargetPrototype,
+                MachineType.Wall => WallPrototype,
+                MachineType.None => FloorPrototype,
                 _ => throw new ArgumentOutOfRangeException(nameof(machineType))
             };
         }
 
 
-        public void SetMachine(Vector2Int position, MachineEnum machineType)
+        public void SetMachine(Vector2Int position, MachineType machineType)
         {
             if (position.x < 0 || position.y < 0 || _currentLevel == null
                 || position.x >= _currentLevel.Size.x || position.y >= _currentLevel.Size.y)
@@ -204,36 +207,22 @@ namespace Assets.Scripts.World
 
             BaseMachine oldMachine = GetMachine(position);
 
-            if (machineType != MachineEnum.None)
+            if (oldMachine != null)
+                CountAddMachine(oldMachine.MachineType, 1);
+
+            if (CountAddMachine(machineType, -1))
             {
                 if (oldMachine != null)
-                    CountAddMachine(oldMachine.MachineType, 1);
+                    DestroyMachine(oldMachine);
 
-                if (CountAddMachine(machineType, -1))
-                {
-                    if (oldMachine != null)
-                        DestroyMachine(oldMachine);
-
-
-                    Renderer.SetMachine(CreateMachine(position, machineType));
-                }
-                else
-                {
-                    if (oldMachine != null)
-                        CountAddMachine(oldMachine.MachineType, -1, true);
-                    LaunchNotification($"failed:machine:{machineType}:{position.x}:{position.y}");
-                    MachinePlacementFailed?.Invoke(position, machineType);
-                }
+                Renderer.SetMachine(CreateMachine(position, machineType));
             }
             else
             {
                 if (oldMachine != null)
-                {
-                    CountAddMachine(oldMachine.MachineType, 1);
-                    DestroyMachine(oldMachine);
-                }
-
-                Renderer.SetMachine(CreateMachine(position, machineType));
+                    CountAddMachine(oldMachine.MachineType, -1, true);
+                LaunchNotification($"failed:machine:{machineType}:{position.x}:{position.y}");
+                MachinePlacementFailed?.Invoke(position, machineType);
             }
         }
 

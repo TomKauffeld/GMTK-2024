@@ -4,14 +4,14 @@ namespace Assets.Scripts.Machines
 {
     public class Wall : BaseMachine
     {
-        public TileBase[] Tiles;
+        public TileBase WallTile;
 
-        public override MachineEnum MachineType => MachineEnum.Wall;
+        public override MachineType MachineType => MachineType.Wall;
 
 
         public override bool Placeable => false;
 
-        public override TileBase[] Tile => Tiles;
+        public override TileBase Tile => WallTile;
 
         public override void Next()
         {

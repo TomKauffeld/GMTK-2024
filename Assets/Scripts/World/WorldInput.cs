@@ -9,7 +9,7 @@ namespace Assets.Scripts.World
     [RequireComponent(typeof(WorldLogic))]
     public class WorldInput : BaseMonoBehaviour
     {
-        public MachineEnum CurrentMachineType = MachineEnum.None;
+        public MachineType CurrentMachineType = MachineType.None;
 
         private WorldLogic _logic;
 
@@ -28,7 +28,7 @@ namespace Assets.Scripts.World
         private void OnMachineSwitch(string notification)
         {
             string name = notification.Split(':').Last();
-            if (Enum.TryParse(name, out MachineEnum machineType))
+            if (Enum.TryParse(name, out MachineType machineType))
             {
                 CurrentMachineType = machineType;
             }
@@ -49,7 +49,7 @@ namespace Assets.Scripts.World
                     {
                         if (existingMachine != null
                             && existingMachine.MachineType == CurrentMachineType
-                            && CurrentMachineType != MachineEnum.None)
+                            && CurrentMachineType != MachineType.None)
                         {
                             LaunchNotification(
                                 $"next:machine:{CurrentMachineType}:{position.Value.x}:{position.Value.y}");

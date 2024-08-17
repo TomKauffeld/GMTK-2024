@@ -44,5 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95a9cad0f66844e4f823466c851b3749, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TurnLeft: {fileID: 11400000, guid: fc0d457cda72a304385fc9b9a382135f, type: 2}
-  TurnRight: {fileID: 11400000, guid: 8714bc4fb7049464da3ccebddbf08d7b, type: 2}
+  TurnLeftTile: {fileID: 11400000, guid: fcc388f5bdcff574cb2cbe3855f81fc8, type: 2}
+  TurnRightTile: {fileID: 11400000, guid: 4620dba0a33e9ad47bcfd732ed1b0606, type: 2}

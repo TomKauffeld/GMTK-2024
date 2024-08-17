@@ -4,14 +4,14 @@ namespace Assets.Scripts.Machines
 {
     public class FlipMachine : BaseMachine
     {
-        public TileBase[] FlipHorizontalTiles;
-        public TileBase[] FlipVerticalTiles;
+        public TileBase FlipHorizontalTile;
+        public TileBase FlipVerticalTile;
 
-        public override MachineEnum MachineType => MachineEnum.FlipMachine;
+        public override MachineType MachineType => MachineType.FlipMachine;
 
-        public override TileBase[] Tile => FlipVertical ? FlipVerticalTiles : FlipHorizontalTiles;
+        public override TileBase Tile => FlipVertical ? FlipVerticalTile : FlipHorizontalTile;
 
-        private bool _flipVertical = false;
+        private bool _flipVertical = true;
 
         public bool FlipVertical
         {

@@ -1,6 +1,6 @@
 ﻿namespace Assets.Scripts.Machines
 {
-    public enum MachineEnum
+    public enum MachineType
     {
         None = 0,
 

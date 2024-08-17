@@ -123,11 +123,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Set_18
+      name: RotateRight
       rect:
         serializedVersion: 2
         x: 512
-        y: 257
+        y: 1280
         width: 256
         height: 256
       alignment: 0
@@ -145,11 +145,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Set_19
+      name: RotateLeft
       rect:
         serializedVersion: 2
         x: 768
-        y: 257
+        y: 1280
         width: 256
         height: 256
       alignment: 0
@@ -167,11 +167,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Set_0
+      name: BeltDown1
       rect:
         serializedVersion: 2
         x: 0
-        y: 1281
+        y: 1792
         width: 256
         height: 256
       alignment: 0
@@ -189,11 +189,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Set_1
+      name: BeltLeft1
       rect:
         serializedVersion: 2
         x: 256
-        y: 1281
+        y: 1792
         width: 256
         height: 256
       alignment: 0
@@ -211,11 +211,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Set_2
+      name: BeltUp1
       rect:
         serializedVersion: 2
         x: 512
-        y: 1281
+        y: 1792
         width: 256
         height: 256
       alignment: 0
@@ -233,11 +233,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Set_3
+      name: BeltRight1
       rect:
         serializedVersion: 2
         x: 768
-        y: 1281
+        y: 1792
         width: 256
         height: 256
       alignment: 0
@@ -258,8 +258,8 @@ TextureImporter:
       name: Set_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1025
+        x: 1024
+        y: 1792
         width: 256
         height: 256
       alignment: 0
@@ -280,8 +280,8 @@ TextureImporter:
       name: Set_5
       rect:
         serializedVersion: 2
-        x: 256
-        y: 1025
+        x: 1280
+        y: 1792
         width: 256
         height: 256
       alignment: 0
@@ -302,8 +302,8 @@ TextureImporter:
       name: Set_6
       rect:
         serializedVersion: 2
-        x: 512
-        y: 1025
+        x: 1536
+        y: 1792
         width: 256
         height: 256
       alignment: 0
@@ -324,8 +324,8 @@ TextureImporter:
       name: Set_7
       rect:
         serializedVersion: 2
-        x: 768
-        y: 1025
+        x: 1792
+        y: 1792
         width: 256
         height: 256
       alignment: 0
@@ -343,11 +343,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Set_8
+      name: BeltDown2
       rect:
         serializedVersion: 2
         x: 0
-        y: 769
+        y: 1538
         width: 256
         height: 256
       alignment: 0
@@ -365,11 +365,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Set_9
+      name: BeltLeft2
       rect:
         serializedVersion: 2
         x: 256
-        y: 769
+        y: 1536
         width: 256
         height: 256
       alignment: 0
@@ -387,11 +387,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Set_10
+      name: BeltUp2
       rect:
         serializedVersion: 2
         x: 512
-        y: 769
+        y: 1536
         width: 256
         height: 256
       alignment: 0
@@ -409,11 +409,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Set_11
+      name: BeltRight2
       rect:
         serializedVersion: 2
         x: 768
-        y: 769
+        y: 1536
         width: 256
         height: 256
       alignment: 0
@@ -434,8 +434,8 @@ TextureImporter:
       name: Set_12
       rect:
         serializedVersion: 2
-        x: 0
-        y: 513
+        x: 1024
+        y: 1536
         width: 256
         height: 256
       alignment: 0
@@ -456,8 +456,8 @@ TextureImporter:
       name: Set_13
       rect:
         serializedVersion: 2
-        x: 256
-        y: 513
+        x: 1280
+        y: 1536
         width: 256
         height: 256
       alignment: 0
@@ -478,8 +478,8 @@ TextureImporter:
       name: Set_14
       rect:
         serializedVersion: 2
-        x: 512
-        y: 513
+        x: 1536
+        y: 1536
         width: 256
         height: 256
       alignment: 0
@@ -500,8 +500,8 @@ TextureImporter:
       name: Set_15
       rect:
         serializedVersion: 2
-        x: 768
-        y: 513
+        x: 1792
+        y: 1536
         width: 256
         height: 256
       alignment: 0
@@ -519,11 +519,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Set_16
+      name: SizeUp1
       rect:
         serializedVersion: 2
         x: 0
-        y: 257
+        y: 1280
         width: 256
         height: 256
       alignment: 0
@@ -541,11 +541,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Set_17
+      name: SizeUp2
       rect:
         serializedVersion: 2
         x: 256
-        y: 257
+        y: 1280
         width: 256
         height: 256
       alignment: 0
@@ -566,8 +566,8 @@ TextureImporter:
       name: Set_20
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1
+        x: 1024
+        y: 1280
         width: 256
         height: 256
       alignment: 0
@@ -588,8 +588,8 @@ TextureImporter:
       name: Set_21
       rect:
         serializedVersion: 2
-        x: 256
-        y: 1
+        x: 1280
+        y: 1280
         width: 256
         height: 256
       alignment: 0
@@ -610,8 +610,8 @@ TextureImporter:
       name: Set_22
       rect:
         serializedVersion: 2
-        x: 512
-        y: 1
+        x: 1536
+        y: 1280
         width: 256
         height: 256
       alignment: 0
@@ -632,8 +632,8 @@ TextureImporter:
       name: Set_23
       rect:
         serializedVersion: 2
-        x: 768
-        y: 1
+        x: 1792
+        y: 1280
         width: 256
         height: 256
       alignment: 0
@@ -646,6 +646,886 @@ TextureImporter:
       bones: []
       spriteID: 511cd267cc4557f44a11fd955cbc76c7
       internalID: 733170876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SizeDown1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a12014e2e8980be45b8c6d48bd641c1b
+      internalID: 292663198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SizeDown2
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f0cdb95d5c4cbd4082d42f97ce0e521
+      internalID: 417328988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlipVertical
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2d96b96ddccd184194966ba810b4b10
+      internalID: -1974478434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlipHorizontal
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1955bc555c976446a8e1497012ee71d
+      internalID: 2025773261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Set_28
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6117604519cb9c40b650cb541d23491
+      internalID: 556708971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Set_29
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13b72e3c6712fdf46836c70a43bdd592
+      internalID: -1471023679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Set_30
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff02a09fac63a504c80dbc1b620faffd
+      internalID: -1149383181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Set_31
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c5dd9d677d27d245bd5261045765dd7
+      internalID: 150302782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ad5d9c22ce1fa34fab40693753b08f9
+      internalID: -813547426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wall
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84d6964d4367d984aae391602acdd8f9
+      internalID: -1750307540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Set_34
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8270f98180bb7b841a5c6e4d4f88d065
+      internalID: 2089280601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Set_35
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24febe21768df83478082a4e4e3a6726
+      internalID: 1415499362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Set_36
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c67bc6b95294d5d4eac398e4b7aec78f
+      internalID: 1676398676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Set_37
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a50f227073fc4c9439f45de2491e8218
+      internalID: -790983330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Set_38
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3811a422156ae194581a779ca6110313
+      internalID: 657209045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Set_39
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd3cb7ec1c7e5cd43acb8f3b6fd4e72a
+      internalID: 1436687369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spawner1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca626ce573e925e48961f0d95c6739b0
+      internalID: -53875602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spawner2
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f28acab164078b42b1b54f04098e97a
+      internalID: -1099994797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Target1
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 173f63a77ec375e48a1f164df69a99fa
+      internalID: -2018838499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Target2
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 514
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9867e4e6f8a1f1848bf19cadaddb60e8
+      internalID: 1006210648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Set_44
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 159e8b8df9eac294bb8f46f292216ee9
+      internalID: -603728252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Set_45
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25ed06b478fa47649b6846c2aa277595
+      internalID: -1730326886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Set_46
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b2f4ab582768b849af93299857c0d0d
+      internalID: -196455739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Set_47
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0dc7a4bd577c9948aa4f21a7395e5c2
+      internalID: 950814088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Set_48
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f7d4781dcfcac240a17b618f9441b1c
+      internalID: -1955114054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Set_49
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2611bffb2f827c488bb3fe02c103409
+      internalID: 709080159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Set_50
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b30268d9e89c5346b87f5482c32eb5b
+      internalID: -1622766520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Set_51
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d44c58e9c0fbea4cac46ffb2afc2372
+      internalID: -1528360179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Set_52
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54fa0e5a5096d7a45907ad98401d7c5f
+      internalID: 1581049769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Set_53
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57a2718aaf6c6d94a920f12c75c63591
+      internalID: 594457286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Set_54
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97189902f016ec44c9c7d1937a3ea240
+      internalID: 1590076289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Set_55
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28926bbb11e921047b76d5b1027ead6c
+      internalID: 40460792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Selected
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdd0c3cf745374a439b52d1cdcfc2ed5
+      internalID: 469455394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Set_57
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0541a76c5362d744861d6e4fb8815d3
+      internalID: -393635483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Set_58
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4372362e75e81b04f98af32b17a0b335
+      internalID: 1912768217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Set_59
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ddb6fa695f1ef940823952192108f45
+      internalID: 1373386317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Set_60
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a59dc77c3a942444e96481e405414571
+      internalID: -2139642921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Set_61
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d14364a76eaa894fad5668bab0489ab
+      internalID: 1112052459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Set_62
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34ffc3eb8a8836c4d9ed7b335a26e490
+      internalID: -380698077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Set_63
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a52dca80c19a0c45be7b72e6a3c4c83
+      internalID: 1839684658
       vertices: []
       indices: 
       edges: []
@@ -664,30 +1544,70 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Set_0: -120474844
-      Set_1: -163805875
-      Set_10: -1161140209
-      Set_11: -870277641
+      BeltDown1: -120474844
+      BeltDown2: -1893618621
+      BeltLeft1: -163805875
+      BeltLeft2: -737585563
+      BeltRight1: -1986555067
+      BeltRight2: -870277641
+      BeltUp1: 327990349
+      BeltUp2: -1161140209
+      FlipHorizontal: 2025773261
+      FlipVertical: -1974478434
+      Floor: -813547426
+      RotateLeft: -2105937006
+      RotateRight: -257855038
+      Selected: 469455394
       Set_12: -311716603
       Set_13: 2039705219
       Set_14: -819415086
       Set_15: 1051464633
-      Set_16: 1102887350
-      Set_17: -292721035
-      Set_18: -257855038
-      Set_19: -2105937006
-      Set_2: 327990349
       Set_20: 521670918
       Set_21: 2127185848
       Set_22: 336975325
       Set_23: 733170876
-      Set_3: -1986555067
+      Set_28: 556708971
+      Set_29: -1471023679
+      Set_30: -1149383181
+      Set_31: 150302782
+      Set_34: 2089280601
+      Set_35: 1415499362
+      Set_36: 1676398676
+      Set_37: -790983330
+      Set_38: 657209045
+      Set_39: 1436687369
       Set_4: -564242097
+      Set_44: -603728252
+      Set_45: -1730326886
+      Set_46: -196455739
+      Set_47: 950814088
+      Set_48: -1955114054
+      Set_49: 709080159
       Set_5: 555863448
+      Set_50: -1622766520
+      Set_51: -1528360179
+      Set_52: 1581049769
+      Set_53: 594457286
+      Set_54: 1590076289
+      Set_55: 40460792
+      Set_57: -393635483
+      Set_58: 1912768217
+      Set_59: 1373386317
       Set_6: -860449210
+      Set_60: -2139642921
+      Set_61: 1112052459
+      Set_62: -380698077
+      Set_63: 1839684658
       Set_7: -2109940
-      Set_8: -1893618621
-      Set_9: -737585563
+      SizeDown1: 292663198
+      SizeDown2: 417328988
+      SizeUp1: 1102887350
+      SizeUp2: -292721035
+      Spawner1: -53875602
+      Spawner2: -1099994797
+      Target1: -2018838499
+      Target2: 1006210648
+      Wall: -1750307540
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

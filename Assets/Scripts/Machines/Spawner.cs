@@ -4,13 +4,13 @@ namespace Assets.Scripts.Machines
 {
     public class Spawner : BaseMachine
     {
-        public TileBase[] Tiles;
+        public TileBase SpawnerTile;
 
-        public override MachineEnum MachineType => MachineEnum.Spawner;
+        public override MachineType MachineType => MachineType.Spawner;
 
         public override bool Placeable => false;
 
-        public override TileBase[] Tile => Tiles;
+        public override TileBase Tile => SpawnerTile;
 
         public override void Next()
         {

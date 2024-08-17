@@ -2,53 +2,31 @@
 
 namespace Assets.Scripts.Machines
 {
-    internal class SizeChangerMachine : BaseMachine
+    public class SizeChangerMachine : BaseMachine
     {
-        public TileBase[] SizeUp1;
-        public TileBase[] SizeUp2;
+        public TileBase SizeUpTile;
 
-        public TileBase[] SizeDown1;
-        public TileBase[] SizeDown2;
+        public TileBase SizeDownTile;
 
-        public override MachineEnum MachineType => MachineEnum.SizeChangerMachine;
+        public override MachineType MachineType => MachineType.SizeChangerMachine;
 
-        private int _multiplier;
+        private bool _isUpChanger = true;
 
-        public int Multiplier
+        public bool IsUpChanger
         {
-            get => _multiplier;
+            get => _isUpChanger;
             set
             {
-                _multiplier = value;
+                _isUpChanger = value;
                 InvokeTileChanged();
             }
         }
 
-        public override TileBase[] Tile
-        {
-            get
-            {
-                return Multiplier switch
-                {
-                    1 => SizeUp1,
-                    >= 2 => SizeUp2,
-                    -1 => SizeDown1,
-                    <= -2 => SizeDown2,
-                    _ => SizeUp1
-                };
-            }
-        }
+        public override TileBase Tile => IsUpChanger ? SizeUpTile : SizeDownTile;
 
         public override void Next()
         {
-            Multiplier = Multiplier switch
-            {
-                1 => 2,
-                >= 2 => -2,
-                <= -2 => -1,
-                -1 => 1,
-                _ => 1,
-            };
+            IsUpChanger = !IsUpChanger;
         }
     }
 }

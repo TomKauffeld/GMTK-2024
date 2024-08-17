@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3304508584749632894}
   - component: {fileID: -629472677675706573}
   m_Layer: 0
-  m_Name: Empty
+  m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,5 +44,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63faa6b2c4f0a6f45a1598b746e82b25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Tiles:
-  - {fileID: 11400000, guid: c0fdbeff6c45d1b49aef4b3241b5abe0, type: 2}
+  FloorTile: {fileID: 11400000, guid: 273c543ab2d25bb47bd704ba9e7ac9dc, type: 2}

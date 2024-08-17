@@ -44,7 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 830845faeb00aad43a0a9cb6663b61af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FlipHorizontalTiles:
-  - {fileID: 11400000, guid: a219d9a720d105e419974b58c9e7f431, type: 2}
-  FlipVerticalTiles:
-  - {fileID: 11400000, guid: fe94888380cdae44c85bdf85aa78c6c9, type: 2}
+  FlipHorizontalTile: {fileID: 11400000, guid: 28fbbd0cd46477c439753bf0b724b993, type: 2}
+  FlipVerticalTile: {fileID: 11400000, guid: c476f5e17113a2748b1691ce38b291d2, type: 2}

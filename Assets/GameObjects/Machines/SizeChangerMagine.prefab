@@ -44,7 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f914c22d61f6e524abbf128d7ff39c75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SizeUp1: {fileID: 11400000, guid: 5d607aeff8467be4eb16c23795b00073, type: 2}
-  SizeUp2: {fileID: 11400000, guid: 2062706f01e2f324cb27e0797eedfe5b, type: 2}
-  SizeDown1: {fileID: 11400000, guid: 660753215a0c03e488aef655e1fe0ff7, type: 2}
-  SizeDown2: {fileID: 11400000, guid: a1da3caa98ef0944b836ac35da861766, type: 2}
+  SizeUpTile: {fileID: 11400000, guid: 34b650a8621f6284b9be222ab868e311, type: 2}
+  SizeDownTile: {fileID: 11400000, guid: 1c5e8194ae88f18408744559fd589ce0, type: 2}

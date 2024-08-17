@@ -47,4 +47,5 @@ MonoBehaviour:
   RemainingBelts: 5
   RemainingRotations: 1
   RemainingSize: 2
+  RemainingFlips: 5
   LevelSize: {x: 10, y: 10}

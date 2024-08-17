@@ -5,14 +5,14 @@ namespace Assets.Scripts.Machines
 {
     internal class Belt : BaseMachine
     {
-        public TileBase[] BeltUp;
-        public TileBase[] BeltDown;
-        public TileBase[] BeltLeft;
-        public TileBase[] BeltRight;
+        public TileBase BeltUpTile;
+        public TileBase BeltDownTile;
+        public TileBase BeltLeftTile;
+        public TileBase BeltRightTile;
 
-        private DirectionEnum _direction;
+        private Direction _direction;
 
-        public DirectionEnum Direction
+        public Direction Direction
         {
             get => _direction;
             set
@@ -22,16 +22,16 @@ namespace Assets.Scripts.Machines
             }
         }
 
-        public override TileBase[] Tile
+        public override TileBase Tile
         {
             get
             {
                 return Direction switch
                 {
-                    DirectionEnum.Down => BeltDown,
-                    DirectionEnum.Left => BeltLeft,
-                    DirectionEnum.Right => BeltRight,
-                    DirectionEnum.Up => BeltUp,
+                    Direction.Down => BeltDownTile,
+                    Direction.Left => BeltLeftTile,
+                    Direction.Right => BeltRightTile,
+                    Direction.Up => BeltUpTile,
                     _ => throw new ArgumentOutOfRangeException(nameof(Direction))
                 };
             }
@@ -41,14 +41,14 @@ namespace Assets.Scripts.Machines
         {
             Direction = Direction switch
             {
-                DirectionEnum.Up => DirectionEnum.Right,
-                DirectionEnum.Right => DirectionEnum.Down,
-                DirectionEnum.Down => DirectionEnum.Left,
-                DirectionEnum.Left => DirectionEnum.Up,
-                _ => DirectionEnum.Up
+                Direction.Up => Direction.Right,
+                Direction.Right => Direction.Down,
+                Direction.Down => Direction.Left,
+                Direction.Left => Direction.Up,
+                _ => Direction.Up
             };
         }
 
-        public override MachineEnum MachineType => MachineEnum.Belt;
+        public override MachineType MachineType => MachineType.Belt;
     }
 }

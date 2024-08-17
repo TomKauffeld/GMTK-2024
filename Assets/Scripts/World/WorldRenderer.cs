@@ -1,8 +1,8 @@
 ﻿using Assets.Scripts.Machines;
 using JetBrains.Annotations;
 using System;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.Tilemaps;
 
 namespace Assets.Scripts.World
@@ -36,11 +36,17 @@ namespace Assets.Scripts.World
 
             RenderingCamera.transform.position = new Vector3(
                 _renderSize.x / 2f,
-                _renderSize.y / 2f,
+                (_renderSize.y + 4) / 2f - 4,
                 RenderingCamera.transform.position.z
             );
 
-            RenderingCamera.orthographicSize = Math.Max(_renderSize.x, _renderSize.y) / 2f + 4f;
+            PixelPerfectCamera camera = RenderingCamera.GetComponent<PixelPerfectCamera>();
+
+
+            int height = camera.refResolutionY / (_renderSize.y + 4);
+            int width = camera.refResolutionX / (_renderSize.x);
+            int size = Math.Min(height, width) + 2;
+            camera.assetsPPU = size;
         }
 
         public event Action OnReady;
@@ -55,61 +61,21 @@ namespace Assets.Scripts.World
             OnReady?.Invoke();
         }
 
-        public const float TimeBetweenFrames = 0.5f;
-        private float _timer = TimeBetweenFrames;
-        public ushort Index = 0;
-
-        private void Update()
-        {
-            _timer -= Time.deltaTime;
-            if (_timer < 0f)
-            {
-                _timer += TimeBetweenFrames;
-                ++Index;
-                UpdateTiles();
-            }
-        }
-
-        private void UpdateTiles()
-        {
-            foreach (Vector2Int position in _tiles.Keys)
-            {
-                SetTile(position);
-            }
-        }
-
-        private readonly Dictionary<Vector2Int, TileBase[]> _tiles = new();
-
 
         internal void SetMachine([NotNull] BaseMachine machine)
         {
-            SetTiles(machine.Position, machine.Tile);
+            SetTile(machine.Position, machine.Tile);
         }
 
         internal void SetEmpty(Vector2Int position)
         {
-            SetTiles(position, null);
+            SetTile(position, null);
         }
 
-        private void SetTiles(Vector2Int position, TileBase[] tile)
-        {
-            if (tile == null || tile.Length == 0)
-            {
-                _tiles.Remove(position);
-            }
-            else
-            {
-                _tiles[position] = tile;
-            }
-            SetTile(position);
-        }
 
-        private void SetTile(Vector2Int position)
+        private void SetTile(Vector2Int position, [CanBeNull] TileBase tile)
         {
-            if (_tiles.TryGetValue(position, out TileBase[] tiles) && tiles is { Length: > 0 })
-                _tilemap.SetTile(new Vector3Int(position.x, position.y), tiles[Index % tiles.Length]);
-            else
-                _tilemap.SetTile(new Vector3Int(position.x, position.y), null);
+            _tilemap.SetTile(new Vector3Int(position.x, position.y), tile);
         }
 
         public Vector2Int WorldToCell(Vector3 position)

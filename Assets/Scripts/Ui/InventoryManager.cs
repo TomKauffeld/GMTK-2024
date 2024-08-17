@@ -1,24 +1,14 @@
 ﻿using Assets.Scripts.Machines;
-using UnityEngine;
 
 namespace Assets.Scripts.Ui
 {
-    public class InventoryManager : MonoBehaviour
+    public class InventoryManager : BaseMonoBehaviour
     {
 
 
         private void Start()
         {
-        }
-
-        public void AddInventoryItem(MachineEnum machineType, int count = 0)
-        {
-
-        }
-
-        public void RemoveInventoryItem(MachineEnum machineType)
-        {
-
+            LaunchNotification($"switch:machine:{MachineType.None}");
         }
     }
 }

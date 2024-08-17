@@ -8,8 +8,8 @@ namespace Assets.Scripts.Machines
     {
         public event Action<BaseMachine> TileChanged;
 
-        public abstract MachineEnum MachineType { get; }
-        public abstract TileBase[] Tile { get; }
+        public abstract MachineType MachineType { get; }
+        public abstract TileBase Tile { get; }
 
         public virtual bool Placeable => true;
 
