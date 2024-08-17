@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine.Tilemaps;
+﻿using UnityEngine.Tilemaps;
 
 namespace Assets.Scripts.Machines
 {
@@ -8,52 +7,25 @@ namespace Assets.Scripts.Machines
         public TileBase TurnLeft;
         public TileBase TurnRight;
 
-        public override MachineEnum MachineType
+        public override MachineEnum MachineType => MachineEnum.RotationMachine;
+
+        private bool _rotateRight = true;
+
+        public bool RotateRight
         {
-            get => MachineEnum.RotationMachine;
+            get => _rotateRight;
             set
             {
-                if (value != MachineEnum.RotationMachine)
-                    throw new ArgumentOutOfRangeException();
-            }
-        }
-
-        private int _degrees;
-
-        public int Degrees
-        {
-            get => _degrees;
-            set
-            {
-                _degrees = value;
+                _rotateRight = value;
                 InvokeTileChanged();
             }
         }
 
-        public int NormalizedDegrees
+        public override TileBase Tile => RotateRight ? TurnRight : TurnLeft;
+
+        public override void Next()
         {
-            get
-            {
-                int degrees = Degrees switch
-                {
-                    > 0 => Degrees % 360,
-                    < 0 => -(-Degrees % 360),
-                    _ => 0
-                };
-                switch (degrees)
-                {
-                    case > 180:
-                        degrees -= 360;
-                        break;
-                    case < -180:
-                        degrees += 360;
-                        break;
-                }
-
-                return degrees;
-            }
+            RotateRight = !RotateRight;
         }
-
-        public override TileBase Tile => NormalizedDegrees > 0 ? TurnRight : TurnLeft;
     }
 }

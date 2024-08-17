@@ -4,11 +4,8 @@ using UnityEngine;
 
 namespace Assets.Scripts
 {
-    public class GeneralEventManager : MonoBehaviour
+    public class NotificationManager : MonoBehaviour
     {
-        public string LastEvent = string.Empty;
-
-
         private readonly Dictionary<string, List<Action<string>>> _handlers = new();
 
 
@@ -21,28 +18,30 @@ namespace Assets.Scripts
 
         public void Unregister(string pattern, Action<string> handler)
         {
-            if (_handlers.ContainsKey(pattern))
-                _handlers[pattern].Remove(handler);
+            if (_handlers.TryGetValue(pattern, out List<Action<string>> handlers))
+                handlers.Remove(handler);
         }
 
-        private void InvokeHandlers(string pattern, string eventName)
+        private void InvokeHandlers(string pattern, string notification)
         {
             if (_handlers.TryGetValue(pattern, out List<Action<string>> handlers))
             {
                 foreach (Action<string> handler in handlers)
                 {
-                    handler.Invoke(eventName);
+                    handler.Invoke(notification);
                 }
             }
         }
 
 
-        public void LaunchEvent(string eventName)
+        public void LaunchNotification(string notification)
         {
-            LastEvent = eventName;
-            InvokeHandlers("*", eventName);
+#if UNITY_EDITOR
+            Debug.Log($"Notification launched: {notification}");
+#endif
+            InvokeHandlers("*", notification);
 
-            string[] parts = eventName.Split(':');
+            string[] parts = notification.Split(':');
             string pattern = "";
             for (int i = 0; i < parts.Length - 1; ++i)
             {
@@ -51,10 +50,10 @@ namespace Assets.Scripts
                 else
                     pattern += ":" + parts[i];
 
-                InvokeHandlers(pattern + ":*", eventName);
+                InvokeHandlers(pattern + ":*", notification);
             }
 
-            InvokeHandlers(eventName, eventName);
+            InvokeHandlers(notification, notification);
         }
     }
 }

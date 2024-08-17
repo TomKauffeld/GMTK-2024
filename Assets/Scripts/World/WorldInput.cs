@@ -1,11 +1,13 @@
 ﻿using Assets.Scripts.Machines;
+using System;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Assets.Scripts.World
 {
     [RequireComponent(typeof(WorldLogic))]
-    public class WorldInput : MonoBehaviour
+    public class WorldInput : BaseMonoBehaviour
     {
         public MachineEnum CurrentMachineType = MachineEnum.None;
 
@@ -14,12 +16,22 @@ namespace Assets.Scripts.World
 
         private void Start()
         {
+            Register("switch:machine:*", OnMachineSwitch);
             _logic = GetComponent<WorldLogic>();
         }
 
-        private Vector2Int WorldToCell(Vector3 position)
+        private Vector2Int? WorldToCell(Vector3 position)
         {
             return _logic.WorldToCell(position);
+        }
+
+        private void OnMachineSwitch(string notification)
+        {
+            string name = notification.Split(':').Last();
+            if (Enum.TryParse(name, out MachineEnum machineType))
+            {
+                CurrentMachineType = machineType;
+            }
         }
 
 
@@ -27,16 +39,23 @@ namespace Assets.Scripts.World
         {
             if (Input.GetMouseButtonDown((int)MouseButton.Left))
             {
-                Vector2Int position = WorldToCell(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+                Vector2Int? position = WorldToCell(Camera.main.ScreenToWorldPoint(Input.mousePosition));
 
+                if (position.HasValue)
+                {
+                    BaseMachine existingMachine = _logic.GetMachine(position.Value);
 
-                BaseMachine existingMachine = _logic.GetMachine(position);
-
-                if (existingMachine != null && existingMachine.MachineType == CurrentMachineType)
-                    _logic.SetMachine(position, MachineEnum.None);
-                else
-                    _logic.SetMachine(position, CurrentMachineType);
-
+                    if (existingMachine != null && existingMachine.MachineType == CurrentMachineType && CurrentMachineType != MachineEnum.None)
+                    {
+                        LaunchNotification($"next:machine:{CurrentMachineType}:{position.Value.x}:{position.Value.y}");
+                        existingMachine.Next();
+                    }
+                    else
+                    {
+                        LaunchNotification($"place:machine:{CurrentMachineType}:{position.Value.x}:{position.Value.y}");
+                        _logic.SetMachine(position.Value, CurrentMachineType);
+                    }
+                }
             }
         }
     }

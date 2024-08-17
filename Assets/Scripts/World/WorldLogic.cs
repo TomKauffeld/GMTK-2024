@@ -2,7 +2,7 @@
 using Assets.Scripts.Machines;
 using JetBrains.Annotations;
 using System;
-using System.Linq;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Assets.Scripts.World
@@ -22,9 +22,10 @@ namespace Assets.Scripts.World
         private LevelManager _levelManager;
         private BaseLevel _currentLevel;
 
+        private readonly Dictionary<Vector2Int, BaseMachine> _machines = new();
+
         //TODO: Show user placement failed
         public event Action<Vector2Int, MachineEnum> MachinePlacementFailed;
-
 
         private void Start()
         {
@@ -59,19 +60,22 @@ namespace Assets.Scripts.World
 
             switch (machineType)
             {
-                case MachineEnum.BeltDown when _currentLevel.RemainingBelts + amount >= 0 || force:
-                case MachineEnum.BeltLeft when _currentLevel.RemainingBelts + amount >= 0 || force:
-                case MachineEnum.BeltRight when _currentLevel.RemainingBelts + amount >= 0 || force:
-                case MachineEnum.BeltUp when _currentLevel.RemainingBelts + amount >= 0 || force:
+                case MachineEnum.Belt when _currentLevel.RemainingBelts + amount >= 0 || force:
                     _currentLevel.RemainingBelts = Math.Max(0, _currentLevel.RemainingBelts + amount);
+                    LaunchNotification($"inventory:update:{machineType}");
+                    LaunchNotification($"inventory:update:{machineType}:{_currentLevel.RemainingBelts}");
                     return true;
 
                 case MachineEnum.RotationMachine when _currentLevel.RemainingRotations + amount >= 0 || force:
                     _currentLevel.RemainingRotations = Math.Max(0, _currentLevel.RemainingRotations + amount);
+                    LaunchNotification($"inventory:update:{machineType}");
+                    LaunchNotification($"inventory:update:{machineType}:{_currentLevel.RemainingRotations}");
                     return true;
 
                 case MachineEnum.SizeChangerMachine when _currentLevel.RemainingSize + amount >= 0 || force:
                     _currentLevel.RemainingSize = Math.Max(0, _currentLevel.RemainingSize + amount);
+                    LaunchNotification($"inventory:update:{machineType}");
+                    LaunchNotification($"inventory:update:{machineType}:{_currentLevel.RemainingSize}");
                     return true;
 
                 case MachineEnum.None:
@@ -95,6 +99,20 @@ namespace Assets.Scripts.World
             }
 
             Renderer.RenderSize = level.Size;
+
+
+            LaunchNotification($"inventory:update:{MachineEnum.None}");
+            LaunchNotification($"inventory:update:{MachineEnum.None}:{-1}");
+
+
+            LaunchNotification($"inventory:update:{MachineEnum.Belt}");
+            LaunchNotification($"inventory:update:{MachineEnum.Belt}:{_currentLevel.RemainingBelts}");
+
+            LaunchNotification($"inventory:update:{MachineEnum.RotationMachine}");
+            LaunchNotification($"inventory:update:{MachineEnum.RotationMachine}:{_currentLevel.RemainingRotations}");
+
+            LaunchNotification($"inventory:update:{MachineEnum.SizeChangerMachine}");
+            LaunchNotification($"inventory:update:{MachineEnum.SizeChangerMachine}:{_currentLevel.RemainingSize}");
         }
 
         private void Update()
@@ -110,10 +128,7 @@ namespace Assets.Scripts.World
 
         public BaseMachine GetMachine(Vector2Int position)
         {
-            return
-                MachinesTransform
-                    .GetComponentsInChildren<BaseMachine>()
-                    .FirstOrDefault(machine => machine.Position.Equals(position));
+            return _machines.GetValueOrDefault(position);
         }
 
         private BaseMachine CreateMachine(Vector2Int position, MachineEnum machineType)
@@ -123,14 +138,21 @@ namespace Assets.Scripts.World
 
             machine.transform.localPosition = new Vector3(position.x, position.y);
             machine.TileChanged += OnMachineTileChanged;
-            machine.MachineType = machineType;
+
+            _machines[position] = machine;
+
+            LaunchNotification($"machine:create:{machineType}");
 
             return machine;
         }
 
         private void DestroyMachine([NotNull] BaseMachine machine)
         {
+            LaunchNotification($"machine:destroy:{machine.MachineType}");
+
+            _machines.Remove(machine.Position);
             machine.TileChanged -= OnMachineTileChanged;
+
             Destroy(machine.gameObject);
         }
 
@@ -138,10 +160,7 @@ namespace Assets.Scripts.World
         {
             return machineType switch
             {
-                MachineEnum.BeltDown => BeltMachine,
-                MachineEnum.BeltLeft => BeltMachine,
-                MachineEnum.BeltRight => BeltMachine,
-                MachineEnum.BeltUp => BeltMachine,
+                MachineEnum.Belt => BeltMachine,
                 MachineEnum.RotationMachine => RotationMachine,
                 MachineEnum.SizeChangerMachine => SizeChangerMachine,
                 _ => throw new ArgumentOutOfRangeException(nameof(machineType))
@@ -151,6 +170,15 @@ namespace Assets.Scripts.World
 
         public void SetMachine(Vector2Int position, MachineEnum machineType)
         {
+            if (position.x < 0 || position.y < 0 || _currentLevel == null
+                || position.x >= _currentLevel.Size.x || position.y >= _currentLevel.Size.y)
+            {
+                MachinePlacementFailed?.Invoke(position, machineType);
+                LaunchNotification($"failed:machine:{machineType}:{position.x}:{position.y}");
+                return;
+            }
+
+
             BaseMachine oldMachine = GetMachine(position);
 
             if (machineType != MachineEnum.None)
@@ -170,6 +198,7 @@ namespace Assets.Scripts.World
                 {
                     if (oldMachine != null)
                         CountAddMachine(oldMachine.MachineType, -1, true);
+                    LaunchNotification($"failed:machine:{machineType}:{position.x}:{position.y}");
                     MachinePlacementFailed?.Invoke(position, machineType);
                 }
             }
@@ -185,9 +214,13 @@ namespace Assets.Scripts.World
             }
         }
 
-        public Vector2Int WorldToCell(Vector3 position)
+        public Vector2Int? WorldToCell(Vector3 position)
         {
-            return Renderer.WorldToCell(position);
+            Vector2Int pos = Renderer.WorldToCell(position);
+
+            if (pos.x < 0 || pos.y < 0 || _currentLevel == null || pos.x >= _currentLevel.Size.x || pos.y >= _currentLevel.Size.y)
+                return null;
+            return pos;
         }
     }
 }

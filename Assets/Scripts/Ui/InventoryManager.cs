@@ -1,15 +1,15 @@
 ﻿using Assets.Scripts.Machines;
 using UnityEngine;
 
-namespace Assets.Scripts
+namespace Assets.Scripts.Ui
 {
     public class InventoryManager : MonoBehaviour
     {
-        public InventoryItem[] items;
 
 
-
-
+        private void Start()
+        {
+        }
 
         public void AddInventoryItem(MachineEnum machineType, int count = 0)
         {

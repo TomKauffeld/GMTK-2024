@@ -8,14 +8,14 @@ namespace Assets.Scripts
     {
         private readonly LinkedList<Tuple<string, Action<string>>> _registrations = new();
 
-        private GeneralEventManager _eventManager;
-        private GeneralEventManager EventManager
+        private NotificationManager _notificationManager;
+        private NotificationManager NotificationManager
         {
             get
             {
-                if (_eventManager == null)
-                    _eventManager = FindFirstObjectByType<GeneralEventManager>();
-                return _eventManager;
+                if (_notificationManager == null)
+                    _notificationManager = FindFirstObjectByType<NotificationManager>();
+                return _notificationManager;
             }
         }
 
@@ -23,31 +23,31 @@ namespace Assets.Scripts
         protected void Register(string pattern, Action<string> handler)
         {
             _registrations.AddLast(new Tuple<string, Action<string>>(pattern, handler));
-            EventManager.Register(pattern, handler);
+            NotificationManager.Register(pattern, handler);
         }
 
 
         protected void Unregister(string pattern, Action<string> handler)
         {
             _registrations.Remove(new Tuple<string, Action<string>>(pattern, handler));
-            EventManager.Unregister(pattern, handler);
+            NotificationManager.Unregister(pattern, handler);
         }
 
         private void OnDestroy()
         {
-            foreach (Tuple<string, Action<string>> registration in _registrations)
+            if (NotificationManager != null)
             {
-                EventManager.Unregister(registration.Item1, registration.Item2);
+                foreach (Tuple<string, Action<string>> registration in _registrations)
+                {
+                    NotificationManager.Unregister(registration.Item1, registration.Item2);
+                }
+                _registrations.Clear();
             }
-            _registrations.Clear();
         }
 
-        protected void LaunchEvent(string eventName)
+        protected void LaunchNotification(string notification)
         {
-            EventManager.LaunchEvent(eventName);
+            NotificationManager.LaunchNotification(notification);
         }
-
-
-
     }
 }

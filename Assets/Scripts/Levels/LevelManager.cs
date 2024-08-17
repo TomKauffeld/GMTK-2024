@@ -9,13 +9,18 @@ namespace Assets.Scripts.Levels
 
         public Action<BaseLevel> OnLevelLoad { get; set; }
 
-        private BaseLevel _lastLoadedLevel { get; set; }
+        private BaseLevel LastLoadedLevel { get; set; }
+        private BaseLevel LoadedLevel { get; set; }
 
         public BaseLevel LoadLevel(BaseLevel prototype)
         {
+            if (LoadedLevel != null)
+                Destroy(LoadedLevel.gameObject);
+
 
             BaseLevel level = prototype != null ? Instantiate(prototype) : null;
-            _lastLoadedLevel = prototype;
+            LastLoadedLevel = prototype;
+            LoadedLevel = level;
             OnLevelLoad?.Invoke(level);
             return level;
         }
@@ -37,7 +42,7 @@ namespace Assets.Scripts.Levels
 
         public BaseLevel ReloadLevel()
         {
-            return LoadLevel(_lastLoadedLevel);
+            return LoadLevel(LastLoadedLevel);
         }
     }
 }

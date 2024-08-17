@@ -40,7 +40,8 @@ namespace Assets.Scripts.World
                 _renderSize.y / 2f,
                 RenderingCamera.transform.position.z
             );
-            RenderingCamera.orthographicSize = Math.Max(_renderSize.x, _renderSize.y) / 2f + 1f;
+
+            RenderingCamera.orthographicSize = Math.Max(_renderSize.x, _renderSize.y) / 2f + 4f;
         }
 
         public event Action OnReady;

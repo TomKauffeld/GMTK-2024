@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine.Tilemaps;
+﻿using UnityEngine.Tilemaps;
 
 namespace Assets.Scripts.Machines
 {
@@ -11,15 +10,7 @@ namespace Assets.Scripts.Machines
         public TileBase SizeDown1;
         public TileBase SizeDown2;
 
-        public override MachineEnum MachineType
-        {
-            get => MachineEnum.SizeChangerMachine;
-            set
-            {
-                if (value != MachineEnum.SizeChangerMachine)
-                    throw new ArgumentOutOfRangeException();
-            }
-        }
+        public override MachineEnum MachineType => MachineEnum.SizeChangerMachine;
 
         private int _multiplier;
 
@@ -46,6 +37,18 @@ namespace Assets.Scripts.Machines
                     _ => SizeUp1
                 };
             }
+        }
+
+        public override void Next()
+        {
+            Multiplier = Multiplier switch
+            {
+                1 => 2,
+                >= 2 => -2,
+                <= -2 => -1,
+                -1 => 1,
+                _ => 1,
+            };
         }
     }
 }

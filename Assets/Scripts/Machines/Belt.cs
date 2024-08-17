@@ -37,30 +37,18 @@ namespace Assets.Scripts.Machines
             }
         }
 
-        public override MachineEnum MachineType
+        public override void Next()
         {
-            get
+            Direction = Direction switch
             {
-                return Direction switch
-                {
-                    DirectionEnum.Down => MachineEnum.BeltDown,
-                    DirectionEnum.Left => MachineEnum.BeltLeft,
-                    DirectionEnum.Right => MachineEnum.BeltRight,
-                    DirectionEnum.Up => MachineEnum.BeltUp,
-                    _ => throw new ArgumentOutOfRangeException(nameof(Direction))
-                };
-            }
-            set
-            {
-                Direction = value switch
-                {
-                    MachineEnum.BeltDown => DirectionEnum.Down,
-                    MachineEnum.BeltLeft => DirectionEnum.Left,
-                    MachineEnum.BeltRight => DirectionEnum.Right,
-                    MachineEnum.BeltUp => DirectionEnum.Up,
-                    _ => throw new ArgumentOutOfRangeException()
-                };
-            }
+                DirectionEnum.Up => DirectionEnum.Right,
+                DirectionEnum.Right => DirectionEnum.Down,
+                DirectionEnum.Down => DirectionEnum.Left,
+                DirectionEnum.Left => DirectionEnum.Up,
+                _ => DirectionEnum.Up
+            };
         }
+
+        public override MachineEnum MachineType => MachineEnum.Belt;
     }
 }
