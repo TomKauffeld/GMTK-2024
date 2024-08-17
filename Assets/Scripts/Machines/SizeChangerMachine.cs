@@ -4,11 +4,11 @@ namespace Assets.Scripts.Machines
 {
     internal class SizeChangerMachine : BaseMachine
     {
-        public TileBase SizeUp1;
-        public TileBase SizeUp2;
+        public TileBase[] SizeUp1;
+        public TileBase[] SizeUp2;
 
-        public TileBase SizeDown1;
-        public TileBase SizeDown2;
+        public TileBase[] SizeDown1;
+        public TileBase[] SizeDown2;
 
         public override MachineEnum MachineType => MachineEnum.SizeChangerMachine;
 
@@ -24,7 +24,7 @@ namespace Assets.Scripts.Machines
             }
         }
 
-        public override TileBase Tile
+        public override TileBase[] Tile
         {
             get
             {

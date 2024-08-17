@@ -1,6 +1,7 @@
 ﻿using Assets.Scripts.Machines;
 using JetBrains.Annotations;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -9,8 +10,6 @@ namespace Assets.Scripts.World
     [RequireComponent(typeof(Tilemap))]
     public class WorldRenderer : MonoBehaviour
     {
-        public TileBase EmptyTile;
-
         public Camera RenderingCamera;
         private Vector2Int _renderSize = Vector2Int.zero;
 
@@ -56,29 +55,61 @@ namespace Assets.Scripts.World
             OnReady?.Invoke();
         }
 
+        public const float TimeBetweenFrames = 0.5f;
+        private float _timer = TimeBetweenFrames;
+        public ushort Index = 0;
 
+        private void Update()
+        {
+            _timer -= Time.deltaTime;
+            if (_timer < 0f)
+            {
+                _timer += TimeBetweenFrames;
+                ++Index;
+                UpdateTiles();
+            }
+        }
 
+        private void UpdateTiles()
+        {
+            foreach (Vector2Int position in _tiles.Keys)
+            {
+                SetTile(position);
+            }
+        }
+
+        private readonly Dictionary<Vector2Int, TileBase[]> _tiles = new();
 
 
         internal void SetMachine([NotNull] BaseMachine machine)
         {
-            SetTile(machine.Position, machine.Tile);
+            SetTiles(machine.Position, machine.Tile);
         }
 
         internal void SetEmpty(Vector2Int position)
         {
-            SetTile(position, EmptyTile);
+            SetTiles(position, null);
         }
 
-        private void SetTile(Vector2Int position, [CanBeNull] TileBase tile)
+        private void SetTiles(Vector2Int position, TileBase[] tile)
         {
-            _tilemap.SetTile(new Vector3Int(position.x, position.y), tile);
+            if (tile == null || tile.Length == 0)
+            {
+                _tiles.Remove(position);
+            }
+            else
+            {
+                _tiles[position] = tile;
+            }
+            SetTile(position);
         }
 
-
-        internal void ClearMachine(Vector2Int position)
+        private void SetTile(Vector2Int position)
         {
-            SetTile(position, null);
+            if (_tiles.TryGetValue(position, out TileBase[] tiles) && tiles is { Length: > 0 })
+                _tilemap.SetTile(new Vector3Int(position.x, position.y), tiles[Index % tiles.Length]);
+            else
+                _tilemap.SetTile(new Vector3Int(position.x, position.y), null);
         }
 
         public Vector2Int WorldToCell(Vector3 position)

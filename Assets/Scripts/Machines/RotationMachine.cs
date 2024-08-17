@@ -4,8 +4,8 @@ namespace Assets.Scripts.Machines
 {
     internal class RotationMachine : BaseMachine
     {
-        public TileBase TurnLeft;
-        public TileBase TurnRight;
+        public TileBase[] TurnLeft;
+        public TileBase[] TurnRight;
 
         public override MachineEnum MachineType => MachineEnum.RotationMachine;
 
@@ -21,7 +21,7 @@ namespace Assets.Scripts.Machines
             }
         }
 
-        public override TileBase Tile => RotateRight ? TurnRight : TurnLeft;
+        public override TileBase[] Tile => RotateRight ? TurnRight : TurnLeft;
 
         public override void Next()
         {

@@ -5,10 +5,10 @@ namespace Assets.Scripts.Machines
 {
     internal class Belt : BaseMachine
     {
-        public TileBase BeltUp;
-        public TileBase BeltDown;
-        public TileBase BeltLeft;
-        public TileBase BeltRight;
+        public TileBase[] BeltUp;
+        public TileBase[] BeltDown;
+        public TileBase[] BeltLeft;
+        public TileBase[] BeltRight;
 
         private DirectionEnum _direction;
 
@@ -22,7 +22,7 @@ namespace Assets.Scripts.Machines
             }
         }
 
-        public override TileBase Tile
+        public override TileBase[] Tile
         {
             get
             {

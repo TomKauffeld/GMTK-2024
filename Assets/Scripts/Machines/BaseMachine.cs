@@ -9,10 +9,11 @@ namespace Assets.Scripts.Machines
         public event Action<BaseMachine> TileChanged;
 
         public abstract MachineEnum MachineType { get; }
-        public abstract TileBase Tile { get; }
+        public abstract TileBase[] Tile { get; }
+
+        public virtual bool Placeable => true;
 
         public Vector2Int Position => new((int)transform.localPosition.x, (int)transform.localPosition.y);
-
 
         protected void InvokeTileChanged()
         {

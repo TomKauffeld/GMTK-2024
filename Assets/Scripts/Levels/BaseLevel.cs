@@ -8,5 +8,6 @@ namespace Assets.Scripts.Levels
         public int RemainingBelts;
         public int RemainingRotations;
         public int RemainingSize;
+        public int RemainingFlips;
     }
 }

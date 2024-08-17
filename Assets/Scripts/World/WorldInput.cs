@@ -45,15 +45,22 @@ namespace Assets.Scripts.World
                 {
                     BaseMachine existingMachine = _logic.GetMachine(position.Value);
 
-                    if (existingMachine != null && existingMachine.MachineType == CurrentMachineType && CurrentMachineType != MachineEnum.None)
+                    if (existingMachine == null || existingMachine.Placeable)
                     {
-                        LaunchNotification($"next:machine:{CurrentMachineType}:{position.Value.x}:{position.Value.y}");
-                        existingMachine.Next();
-                    }
-                    else
-                    {
-                        LaunchNotification($"place:machine:{CurrentMachineType}:{position.Value.x}:{position.Value.y}");
-                        _logic.SetMachine(position.Value, CurrentMachineType);
+                        if (existingMachine != null
+                            && existingMachine.MachineType == CurrentMachineType
+                            && CurrentMachineType != MachineEnum.None)
+                        {
+                            LaunchNotification(
+                                $"next:machine:{CurrentMachineType}:{position.Value.x}:{position.Value.y}");
+                            existingMachine.Next();
+                        }
+                        else
+                        {
+                            LaunchNotification(
+                                $"place:machine:{CurrentMachineType}:{position.Value.x}:{position.Value.y}");
+                            _logic.SetMachine(position.Value, CurrentMachineType);
+                        }
                     }
                 }
             }

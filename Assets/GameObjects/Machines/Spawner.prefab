@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8905422796406886424
+--- !u!1 &2131168178419461544
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1205931996223638501}
-  - component: {fileID: 3078339919706968007}
+  - component: {fileID: 3304508584749632894}
+  - component: {fileID: -3949763279779993015}
   m_Layer: 0
-  m_Name: RotationMachine
+  m_Name: Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1205931996223638501
+--- !u!4 &3304508584749632894
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8905422796406886424}
+  m_GameObject: {fileID: 2131168178419461544}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.8532705, y: -0.3780794, z: 8.811928}
@@ -32,17 +32,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3078339919706968007
+--- !u!114 &-3949763279779993015
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8905422796406886424}
+  m_GameObject: {fileID: 2131168178419461544}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95a9cad0f66844e4f823466c851b3749, type: 3}
+  m_Script: {fileID: 11500000, guid: 7bcab4e623d9b6f4fa1d7328a2e8d2c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TurnLeft: {fileID: 11400000, guid: fc0d457cda72a304385fc9b9a382135f, type: 2}
-  TurnRight: {fileID: 11400000, guid: 8714bc4fb7049464da3ccebddbf08d7b, type: 2}
+  Tiles: []

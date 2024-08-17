@@ -44,7 +44,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d95c08e4cabf3f647aaec049696ca46d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BeltUp: {fileID: 11400000, guid: 1bf046a874642c443b86d8ed9c1fc45a, type: 2}
-  BeltDown: {fileID: 11400000, guid: 517d722cced15664c81438095e69c30d, type: 2}
-  BeltLeft: {fileID: 11400000, guid: 8df2f17cceeb76f4f95cac2d491d8200, type: 2}
-  BeltRight: {fileID: 11400000, guid: 76f6fcef8814f7d4ca9d86e748812c44, type: 2}
+  BeltUp:
+  - {fileID: 11400000, guid: 3f18f55d3d739cd438500ec75dfffd01, type: 2}
+  - {fileID: 11400000, guid: a98d2e446660ba845923ff43b401bd15, type: 2}
+  BeltDown:
+  - {fileID: 11400000, guid: 99c3dc37a050f634e8effadb68d522a9, type: 2}
+  - {fileID: 11400000, guid: 4578b6c5ff0716f47aa909b0b1a2b8dc, type: 2}
+  BeltLeft:
+  - {fileID: 11400000, guid: 5a14de2ade7974348a2a65cb6c5de897, type: 2}
+  - {fileID: 11400000, guid: 85930a042e13c2646818583951810844, type: 2}
+  BeltRight:
+  - {fileID: 11400000, guid: 2e21a6be61f7b084ea3b26d443139b2f, type: 2}
+  - {fileID: 11400000, guid: 44c814e2f0e954f4ab7c03d96b62eb46, type: 2}
