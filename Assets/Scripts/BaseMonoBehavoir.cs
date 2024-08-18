@@ -33,7 +33,7 @@ namespace Assets.Scripts
             NotificationManager.Unregister(pattern, handler);
         }
 
-        private void OnDestroy()
+        protected virtual void OnDestroy()
         {
             if (NotificationManager != null)
             {

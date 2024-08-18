@@ -1,4 +1,5 @@
-﻿using UnityEngine.Tilemaps;
+﻿using Assets.Scripts.Figures;
+using UnityEngine.Tilemaps;
 
 namespace Assets.Scripts.Machines
 {
@@ -14,6 +15,10 @@ namespace Assets.Scripts.Machines
         public override TileBase Tile => TargetTile;
 
         public override void Next()
+        {
+        }
+
+        public override void UpdateFigure(BaseFigure figure)
         {
         }
     }

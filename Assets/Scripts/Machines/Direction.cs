@@ -1,6 +1,6 @@
 ﻿namespace Assets.Scripts.Machines
 {
-    internal enum Direction
+    public enum Direction
     {
         Up, Down, Left, Right
     }

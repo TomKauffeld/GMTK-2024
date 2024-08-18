@@ -8,8 +8,12 @@ using UnityEngine;
 namespace Assets.Scripts.World
 {
     [RequireComponent(typeof(LevelManager))]
-    internal class WorldLogic : BaseMonoBehaviour
+    public class WorldLogic : BaseMonoBehaviour
     {
+        public bool Construction = true;
+
+
+
         public WorldRenderer Renderer;
 
         public Transform MachinesTransform;
@@ -39,6 +43,19 @@ namespace Assets.Scripts.World
             Renderer.OnReady += RendererOnReady;
             if (Renderer.IsReady)
                 RendererOnReady();
+            Register("level:start", OnLevelStart);
+            Register("level:restart", OnLevelRestart);
+        }
+
+        private void OnLevelRestart(string obj)
+        {
+            Construction = true;
+            _levelManager.ReloadLevel();
+        }
+
+        private void OnLevelStart(string notification)
+        {
+            Construction = false;
         }
 
 
@@ -97,20 +114,28 @@ namespace Assets.Scripts.World
                     return true;
 
                 default:
-                    return false;
+                    return force;
             }
         }
 
         private void OnLevelLoad(BaseLevel level)
         {
+            Construction = true;
             ClearAllMachines();
             _currentLevel = level;
             for (int x = 0; x < level.Size.x; ++x)
             {
                 for (int y = 0; y < level.Size.y; ++y)
                 {
-                    SetMachine(new Vector2Int(x, y), MachineType.None);
+                    SetMachine(new Vector2Int(x, y), MachineType.None, true);
                 }
+            }
+
+            foreach (SpawnerConfig spawnerConfig in level.Spawners)
+            {
+                SetMachine(spawnerConfig.Position, MachineType.Spawner, true);
+                Spawner spawner = GetMachine(spawnerConfig.Position) as Spawner;
+                spawner.Figure = spawnerConfig.FigureType;
             }
 
             Renderer.RenderSize = level.Size;
@@ -193,9 +218,11 @@ namespace Assets.Scripts.World
             };
         }
 
-
-        public void SetMachine(Vector2Int position, MachineType machineType)
+        private void SetMachine(Vector2Int position, MachineType machineType, bool force)
         {
+            if (!Construction && !force)
+                return;
+
             if (position.x < 0 || position.y < 0 || _currentLevel == null
                 || position.x >= _currentLevel.Size.x || position.y >= _currentLevel.Size.y)
             {
@@ -208,9 +235,9 @@ namespace Assets.Scripts.World
             BaseMachine oldMachine = GetMachine(position);
 
             if (oldMachine != null)
-                CountAddMachine(oldMachine.MachineType, 1);
+                CountAddMachine(oldMachine.MachineType, 1, force);
 
-            if (CountAddMachine(machineType, -1))
+            if (CountAddMachine(machineType, -1, force))
             {
                 if (oldMachine != null)
                     DestroyMachine(oldMachine);
@@ -224,6 +251,12 @@ namespace Assets.Scripts.World
                 LaunchNotification($"failed:machine:{machineType}:{position.x}:{position.y}");
                 MachinePlacementFailed?.Invoke(position, machineType);
             }
+        }
+
+
+        public void SetMachine(Vector2Int position, MachineType machineType)
+        {
+            SetMachine(position, machineType, false);
         }
 
         public Vector2Int? WorldToCell(Vector3 position)

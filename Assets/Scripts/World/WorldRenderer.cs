@@ -30,8 +30,6 @@ namespace Assets.Scripts.World
             if (_renderSize.x <= 0 || _renderSize.y <= 0)
                 return;
 
-
-            //TODO: Handle if screen is higher than large (mobile)
             RenderingCamera ??= Camera.main;
 
             RenderingCamera.transform.position = new Vector3(

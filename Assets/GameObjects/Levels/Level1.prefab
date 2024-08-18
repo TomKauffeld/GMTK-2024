@@ -44,8 +44,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 412b9c37504db8d41bf859be8aff9092, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RemainingBelts: 5
-  RemainingRotations: 1
-  RemainingSize: 2
-  RemainingFlips: 5
+  RemainingBelts: -1
+  RemainingRotations: -1
+  RemainingSize: -1
+  RemainingFlips: -1
   LevelSize: {x: 10, y: 10}
+  ConfigSpawners:
+  - Position: {x: 8, y: 6}
+    FigureType: 1
+  - Position: {x: 8, y: 4}
+    FigureType: 1

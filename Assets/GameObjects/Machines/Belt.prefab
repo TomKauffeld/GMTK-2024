@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4259674375984432049}
   - component: {fileID: 2658001169859737078}
+  - component: {fileID: -6667610613135978991}
   m_Layer: 0
   m_Name: Belt
   m_TagString: Untagged
@@ -48,3 +49,49 @@ MonoBehaviour:
   BeltDownTile: {fileID: 11400000, guid: 02a5e6a70fef7904b94f5c171c82ce55, type: 2}
   BeltLeftTile: {fileID: 11400000, guid: b53073cfa224d924aaae5fc36082a732, type: 2}
   BeltRightTile: {fileID: 11400000, guid: 8aa1a83d806b73341be9d024bd7c97e1, type: 2}
+--- !u!61 &-6667610613135978991
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1927886420860078723}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.5, y: 0.5}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0

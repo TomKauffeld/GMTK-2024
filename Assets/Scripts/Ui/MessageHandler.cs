@@ -15,7 +15,6 @@ namespace Assets.Scripts.Ui
 
         private readonly Queue<MessageItem> _messages = new();
 
-        public int QueueSize = 0;
 
         private void Start()
         {
@@ -23,14 +22,6 @@ namespace Assets.Scripts.Ui
             MessagePopup.Timeout += OnMessageTimeout;
             Register("show:message:*", OnMessage);
         }
-
-#if UNITY_EDITOR
-        private void Update()
-        {
-            QueueSize = _messages.Count;
-        }
-
-#endif
 
         private void OnMessage(string notification)
         {

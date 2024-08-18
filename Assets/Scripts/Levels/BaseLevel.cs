@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace Assets.Scripts.Levels
 {
@@ -9,5 +10,7 @@ namespace Assets.Scripts.Levels
         public int RemainingRotations;
         public int RemainingSize;
         public int RemainingFlips;
+
+        public abstract IReadOnlyList<SpawnerConfig> Spawners { get; }
     }
 }

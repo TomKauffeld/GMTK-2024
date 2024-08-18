@@ -1,10 +1,12 @@
-﻿using System;
+﻿using Assets.Scripts.Figures;
+using System;
 using UnityEngine.Tilemaps;
 
 namespace Assets.Scripts.Machines
 {
-    internal class Belt : BaseMachine
+    public class Belt : BaseMachine
     {
+
         public TileBase BeltUpTile;
         public TileBase BeltDownTile;
         public TileBase BeltLeftTile;
@@ -47,6 +49,12 @@ namespace Assets.Scripts.Machines
                 Direction.Left => Direction.Up,
                 _ => Direction.Up
             };
+        }
+
+
+        public override void UpdateFigure(BaseFigure figure)
+        {
+            MoveFigure(figure, Direction);
         }
 
         public override MachineType MachineType => MachineType.Belt;
